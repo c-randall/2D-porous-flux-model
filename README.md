@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/135629486.svg)](https://zenodo.org/badge/latestdoi/135629486)
+
 # 2D-porous-flux-model
 Modling 2D porous flux for NR flow through support
 
@@ -55,6 +57,19 @@ steady state. At steady state, the maximum variation of the O2
 concentration at the sample (bottom) interface is calculated, in 
 order to assess the suitability of the proposed structures.
 
+## Running the Model
+To run the model, after downloading or cloning this repository, one
+executes the Python file `2D_FluxModel.py`.
+
+Open and edit the file first, to adjust the user inputs for your own
+particular application (all inputs are at the top of the file, and
+are described in the section below).  Then save, close, and run the 
+file using your preferred method for running Python files.
+
+While the model calls either of the files Ficks_func.py or DGM_func.py
+in order to evaluation mass flux rates, there should be no need for you
+to ever interact directly with either of these two files.
+
 ## User inputs
 The user inputs the geometry/microstructure for the porous diffusion 
 layer and the boundary conditions:
@@ -72,7 +87,7 @@ layer and the boundary conditions:
 * cti file containing species that will be tracked
 * Name of species for which the plot/animation will be produced
 * Reactive species name (i.e. the species that has a constant flux at the outlet)
-* The ratio of electrons per 1 mol of the reactive species from the redox reaction
+* The ratio of moles of electrons per 1 mol of the reactive species from the redox reaction
 
 ## Additional Options/Switches
 The user can also control different diffusive models, geometries, 
@@ -86,3 +101,39 @@ and solver methods by changing certain switch options:
 chooses frames = 0 then a frame is created for each time step. This can end up 
 taking a long time for solutions with a large number of time steps. To save time
  in generating this animation, the user can specify a number of frames to be saved.
+ 
+## License
+
+This tool is released under the BSD-3 clause license, see LICENSE for details.
+
+## Citing the Model
+ This model is versioned using Zenodo:
+[![DOI](https://zenodo.org/badge/135629486.svg)](https://zenodo.org/badge/latestdoi/135629486)
+
+If you use this tool as part of a scholarly work, please cite using:
+
+> C.R. Randall and S.C. DeCaluwe. (2018) 2D Porous Flux Model v1.0 [software]. Zenodo. https://doi.org/10.5281/zenodo.1317600
+
+A BibTeX entry for LaTeX users is
+
+```TeX
+@misc{2dPorousFlux,
+    author = {Corey R. Randall and Steven C DeCaluwe},
+    year = 2018,
+    title = {2D Porous Flux Model v1.0},
+    doi = {10.5281/zenodo.1317600},
+    url = {https://github.com/decaluwe/2D-porous-flux-model},
+}
+```
+
+In both cases, please update the entry with the version used. The DOI for the latest version is
+given in the badge at the top, or alternately <https://doi.org/10.5281/zenodo.1317600> will
+take you to the latest version (and generally represents all versions).
+
+## Extending the model
+While the model was written for a rather specific use case, it can be easily extended for other 2D porous flux simulations.  If you think it may be useful for your work, please download and edit as you see fit.  If you make a modification that you think others might also find useful, please consider submitting a pull request, and we are happy to incporate the changes (you are on GitHub, so chances are you already understand all this, but just in case...).
+
+Perhaps the most obvious extension of this tool would be to look at 2D diffusion through the porous Gas Diffusion Layer (GDL) in a polymer electrolyte membrane fuel cell (PEMFC).  The PEMFC GDL has a similar domain, with metallic flow channels/current collectors at the top of the domain, and an (ideally) constant flux of O2 into the catalyst layer at the bottom boundary.  Keeping these current assumptions to model the GDL flow field would simply require changing some of the inputs to reflect the flow-field geometry.  
+
+Relaxing the current assumptions, particularly to incorporate a non-uniform flux at the bottom boudnary should also be relatively straightforward.  The current density at a given node could be written as a function of the local gas concentration, or if one is feeling ambitious, an additional catalyst layer domain could be added.
+
