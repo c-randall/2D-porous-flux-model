@@ -91,7 +91,12 @@ plt_species = 'O2'
 # Create folder for any files/outputs to be saved:
 if os.path.exists(folder_name):
     print('WARNING: folder_name already exists. Files will be overwritten.')
-    input('Press "Enter" to continue and overwrite or "ctrl+c" to cancel.')
+    user_in = input('Press "Enter" to continue and overwrite or "Ctrl+d" \
+                     to cancel.')
+    
+    if user_in == KeyboardInterrupt:
+        sys.exit(0)
+        
     if os.path.exists(folder_name + '/animation_frames'):
         rmtree(folder_name + '/animation_frames')
     if os.path.exists(folder_name + 'animation.html'):
