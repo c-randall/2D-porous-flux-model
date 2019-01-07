@@ -91,10 +91,9 @@ plt_species = 'O2'
 # Create folder for any files/outputs to be saved:
 if os.path.exists(folder_name):
     print('WARNING: folder_name already exists. Files will be overwritten.')
-    user_in = input('Press "Enter" to continue and overwrite or "Ctrl+d" \
-                     to cancel.')
+    ui = input('Press "Enter" to continue and overwrite or "Ctrl+d" to cancel.')
     
-    if user_in == KeyboardInterrupt:
+    if ui == KeyboardInterrupt:
         sys.exit(0)
         
     if os.path.exists(folder_name + '/animation_frames'):
