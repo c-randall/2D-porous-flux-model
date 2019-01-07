@@ -26,7 +26,7 @@ Author:
 
 """ Load any needed modeules """
 "-----------------------------------------------------------------------------"
-import os, time
+import os, sys, time
 import numpy as np
 import cantera as ct
 import matplotlib.pyplot as plt
